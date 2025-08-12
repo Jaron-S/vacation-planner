@@ -46,7 +46,7 @@ To run this project locally, please follow these steps:
 1.  **Clone the Repository**
 
     ```bash
-    git clone <your-repo-url>
+    git clone https://github.com/Jaron-S/vacation-planner
     cd vacation-planner
     ```
 
