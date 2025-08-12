@@ -148,7 +148,7 @@ function App() {
 							<DestinationCard
 								key={dest.id}
 								destination={dest}
-								onDelete={() => handleDeleteDestination(dest.id)}
+								onDelete={handleDeleteDestination}
 							/>
 						))
 					) : (
