@@ -6,12 +6,12 @@ import {
 	IconButton,
 	Typography,
 } from "@mui/material";
-import React, { memo } from "react";
+import { memo } from "react";
 import { Destination } from "../types";
 
 interface DestinationCardProps {
 	destination: Destination;
-	onDelete: () => void;
+	onDelete: (id: string) => void;
 }
 
 /**
@@ -32,7 +32,10 @@ const DestinationCard = ({ destination, onDelete }: DestinationCardProps) => {
 				</Typography>
 			</CardContent>
 			<CardActions sx={{ justifyContent: "flex-end" }}>
-				<IconButton aria-label="delete" onClick={onDelete}>
+				<IconButton
+					aria-label="delete"
+					onClick={() => onDelete(destination.id)}
+				>
 					<DeleteIcon />
 				</IconButton>
 			</CardActions>

@@ -3,6 +3,13 @@ import mapboxgl from "mapbox-gl";
 import React, { useEffect, useRef, useState } from "react";
 import { Coordinates, Destination } from "../types";
 
+interface MapComponentProps {
+	destinations: Destination[];
+	newCoord: Coordinates | null;
+	onMapClick: (coords: Coordinates) => void;
+	mapRef: React.MutableRefObject<mapboxgl.Map | null>;
+}
+
 /**
  * @description Renders the Mapbox map and manages all map-related side effects,
  * including initialization and marker management for saved and temporary destinations.
@@ -12,12 +19,7 @@ const MapComponent = ({
 	newCoord,
 	onMapClick,
 	mapRef,
-}: {
-	destinations: Destination[];
-	newCoord: Coordinates | null;
-	onMapClick: (coords: Coordinates) => void;
-	mapRef: React.MutableRefObject<mapboxgl.Map | null>;
-}) => {
+}: MapComponentProps) => {
 	const mapContainer = useRef<HTMLDivElement | null>(null);
 	const tempMarkerRef = useRef<mapboxgl.Marker | null>(null);
 	const savedMarkersRef = useRef<mapboxgl.Marker[]>([]);

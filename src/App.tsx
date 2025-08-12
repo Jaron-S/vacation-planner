@@ -22,6 +22,7 @@ import React, { useCallback, useRef, useState } from "react";
 import DestinationCard from "./components/DestinationCard";
 import DestinationForm from "./components/DestinationForm";
 import MapComponent from "./components/MapComponent";
+import SortButton from "./components/SortButton";
 import { useDestinations } from "./hooks/useDestinations";
 import { Coordinates } from "./types";
 
@@ -75,16 +76,19 @@ function App() {
 		});
 	};
 
-	const handleDeleteDestination = (id: number) => {
-		const destToDelete = destinations.find((d) => d.id === id);
-		if (destToDelete) {
-			setSnackbarInfo({
-				open: true,
-				message: `Removed "${destToDelete.name}" from destinations.`,
-			});
-		}
-		deleteDestination(id);
-	};
+	const handleDeleteDestination = useCallback(
+		(id: string) => {
+			const destToDelete = destinations.find((d) => d.id === id);
+			if (destToDelete) {
+				setSnackbarInfo({
+					open: true,
+					message: `Removed "${destToDelete.name}" from destinations.`,
+				});
+			}
+			deleteDestination(id);
+		},
+		[destinations, deleteDestination]
+	);
 
 	const handleMapClick = useCallback((coords: Coordinates) => {
 		setNewCoord(coords);
@@ -122,38 +126,20 @@ function App() {
 					>
 						<Typography variant="h6">My Destinations</Typography>
 						<Stack direction="row" spacing={1}>
-							<Button
-								size="small"
-								variant={sortOptions.key === "date" ? "contained" : "outlined"}
-								onClick={() => handleSort("date")}
-								endIcon={
-									sortOptions.key === "date" ? (
-										sortOptions.direction === "asc" ? (
-											<ArrowUpwardIcon />
-										) : (
-											<ArrowDownwardIcon />
-										)
-									) : undefined
-								}
+							<SortButton
+								sortKey="date"
+								currentSortOptions={sortOptions}
+								onClick={handleSort}
 							>
 								Date
-							</Button>
-							<Button
-								size="small"
-								variant={sortOptions.key === "name" ? "contained" : "outlined"}
-								onClick={() => handleSort("name")}
-								endIcon={
-									sortOptions.key === "name" ? (
-										sortOptions.direction === "asc" ? (
-											<ArrowUpwardIcon />
-										) : (
-											<ArrowDownwardIcon />
-										)
-									) : undefined
-								}
+							</SortButton>
+							<SortButton
+								sortKey="name"
+								currentSortOptions={sortOptions}
+								onClick={handleSort}
 							>
 								Name
-							</Button>
+							</SortButton>
 						</Stack>
 					</Stack>
 

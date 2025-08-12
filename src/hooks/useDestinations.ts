@@ -26,12 +26,15 @@ export const useDestinations = () => {
 	}, [destinations]);
 
 	const addDestination = (destination: Omit<Destination, "id">) => {
-		const newDestination: Destination = { id: Date.now(), ...destination };
+		const newDestination: Destination = {
+			id: crypto.randomUUID(),
+			...destination,
+		};
 		setDestinations((prev) => [...prev, newDestination]);
 		return newDestination;
 	};
 
-	const deleteDestination = useCallback((idToDelete: number) => {
+	const deleteDestination = useCallback((idToDelete: string) => {
 		setDestinations((prev) => prev.filter((dest) => dest.id !== idToDelete));
 	}, []);
 
