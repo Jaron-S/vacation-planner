@@ -114,10 +114,9 @@ function App() {
 					disableEnforceFocus: !isMobile,
 				}}
 				sx={{
-					width: drawerWidth,
-					flexShrink: 0,
 					[`& .MuiDrawer-paper`]: {
-						width: drawerWidth,
+						width: "100vw",
+						maxWidth: drawerWidth,
 						boxSizing: "border-box",
 					},
 				}}
