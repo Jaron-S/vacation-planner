@@ -4,7 +4,7 @@ Welcome to the Vacation Destination Planner, a responsive React application desi
 
 This project was built to demonstrate a strong command of modern React principles, state management and third-party API integration in a polished, user-centric package.
 
-**[➡️ View the Live Demo at vacation-planner.netlify.app](https://vacation-planner.netlify.app)**
+**[➡️ View the Live Demo at vacation-map.netlify.app](https://vacation-map.netlify.app)**
 
 ---
 
