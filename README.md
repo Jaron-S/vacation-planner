@@ -4,11 +4,11 @@ Welcome to the Vacation Destination Planner, a responsive React application desi
 
 This project was built to demonstrate a strong command of modern React principles, state management and third-party API integration in a polished, user-centric package.
 
-**[➡️ View the Live Demo at vacation-map.netlify.app](https://vacation-map.netlify.app)**
+**[View the Live Demo at vacation-map.netlify.app](https://vacation-map.netlify.app)**
 
 ---
 
-## ✅ Features
+## Features
 
 - **Interactive Map**: Utilizes Mapbox GL JS to provide a smooth, interactive map experience.
 - **Dynamic Destination Management**: Click anywhere on the map to add a new destination. Saved destinations are plotted with a distinct marker.
@@ -23,7 +23,7 @@ This project was built to demonstrate a strong command of modern React principle
 
 ---
 
-## ⚙️ Tech Stack & Architecture
+## Tech Stack & Architecture
 
 This project was built with a focus on creating a maintainable, scalable and performant application.
 
@@ -39,7 +39,7 @@ This project was built with a focus on creating a maintainable, scalable and per
 
 ---
 
-## 🚀 How to Run the Project
+## How to Run the Project
 
 To run this project locally, please follow these steps:
 
@@ -75,7 +75,7 @@ To run this project locally, please follow these steps:
 
 ---
 
-### My Approach
+## My Approach
 
 My process was guided by a commitment to building a clean, scalable and maintainable application from the outset. I followed a methodical, component-driven development strategy.
 
@@ -89,7 +89,7 @@ My process was guided by a commitment to building a clean, scalable and maintain
 
 ---
 
-### Challenges & Solutions
+## Challenges & Solutions
 
 Building a polished application always involves solving interesting technical challenges. Here are a couple that were addressed during development:
 
@@ -103,7 +103,7 @@ Building a polished application always involves solving interesting technical ch
 
 ---
 
-## 🧠 Limitations & Future Improvements
+## Limitations & Future Improvements
 
 Given more time, I would consider the following enhancements:
 
