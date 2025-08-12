@@ -77,17 +77,14 @@ function App() {
 	};
 
 	const handleDeleteDestination = useCallback(
-		(id: string) => {
-			const destToDelete = destinations.find((d) => d.id === id);
-			if (destToDelete) {
-				setSnackbarInfo({
-					open: true,
-					message: `Removed "${destToDelete.name}" from destinations.`,
-				});
-			}
+		(id: string, name: string) => {
 			deleteDestination(id);
+			setSnackbarInfo({
+				open: true,
+				message: `Removed "${name}" from destinations.`,
+			});
 		},
-		[destinations, deleteDestination]
+		[deleteDestination]
 	);
 
 	const handleMapClick = useCallback((coords: Coordinates) => {

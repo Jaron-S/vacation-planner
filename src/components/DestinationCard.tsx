@@ -12,7 +12,7 @@ import { formatDate } from "../utils/formatDate";
 
 interface DestinationCardProps {
 	destination: Destination;
-	onDelete: (id: string) => void;
+	onDelete: (id: string, name: string) => void;
 }
 
 /**
@@ -35,7 +35,7 @@ const DestinationCard = ({ destination, onDelete }: DestinationCardProps) => {
 			<CardActions sx={{ justifyContent: "flex-end" }}>
 				<IconButton
 					aria-label="delete"
-					onClick={() => onDelete(destination.id)}
+					onClick={() => onDelete(destination.id, destination.name)}
 				>
 					<DeleteIcon />
 				</IconButton>
