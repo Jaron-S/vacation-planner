@@ -25,6 +25,7 @@ import MapComponent from "./components/MapComponent";
 import SortButton from "./components/SortButton";
 import { useDestinations } from "./hooks/useDestinations";
 import { Coordinates } from "./types";
+import Sidebar from "./components/Sidebar";
 
 const drawerWidth = 400;
 
@@ -92,74 +93,6 @@ function App() {
 		setSidebarOpen(true);
 	}, []);
 
-	const sidebarContent = (
-		<Box sx={{ p: 2, height: "100%", overflowY: "auto" }}>
-			<Stack spacing={3}>
-				<header>
-					<Typography variant="h4" component="h1" color="primary">
-						Vacation Planner
-					</Typography>
-					<Typography color="text.secondary">
-						Click the map to add a destination.
-					</Typography>
-				</header>
-				<Divider />
-
-				{newCoord && (
-					<Paper elevation={3} sx={{ p: 2 }}>
-						<DestinationForm
-							coordinates={newCoord}
-							onSubmit={handleAddDestination}
-							onCancel={() => setNewCoord(null)}
-						/>
-					</Paper>
-				)}
-
-				<Stack spacing={2}>
-					<Stack
-						direction="row"
-						justifyContent="space-between"
-						alignItems="center"
-					>
-						<Typography variant="h6">My Destinations</Typography>
-						<Stack direction="row" spacing={1}>
-							<SortButton
-								sortKey="date"
-								currentSortOptions={sortOptions}
-								onClick={handleSort}
-							>
-								Date
-							</SortButton>
-							<SortButton
-								sortKey="name"
-								currentSortOptions={sortOptions}
-								onClick={handleSort}
-							>
-								Name
-							</SortButton>
-						</Stack>
-					</Stack>
-
-					{destinations.length > 0 ? (
-						destinations.map((dest) => (
-							<DestinationCard
-								key={dest.id}
-								destination={dest}
-								onDelete={handleDeleteDestination}
-							/>
-						))
-					) : (
-						<Box sx={{ textAlign: "center", py: 5 }}>
-							<Typography color="text.secondary">
-								Your saved destinations will appear here.
-							</Typography>
-						</Box>
-					)}
-				</Stack>
-			</Stack>
-		</Box>
-	);
-
 	return (
 		<Box sx={{ display: "flex" }}>
 			<AppBar
@@ -198,8 +131,15 @@ function App() {
 					},
 				}}
 			>
-				<Toolbar />
-				{sidebarContent}
+				<Sidebar
+					destinations={destinations}
+					newCoord={newCoord}
+					sortOptions={sortOptions}
+					onAddDestination={handleAddDestination}
+					onDeleteDestination={handleDeleteDestination}
+					onCancelNewDestination={() => setNewCoord(null)}
+					onSort={handleSort}
+				/>
 			</Drawer>
 
 			<Box
