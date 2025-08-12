@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import { memo } from "react";
 import { Destination } from "../types";
+import { formatDate } from "../utils/formatDate";
 
 interface DestinationCardProps {
 	destination: Destination;
@@ -25,7 +26,7 @@ const DestinationCard = ({ destination, onDelete }: DestinationCardProps) => {
 					{destination.name}
 				</Typography>
 				<Typography sx={{ mb: 1.5 }} color="text.secondary">
-					{destination.date}
+					{formatDate(destination.date)}
 				</Typography>
 				<Typography variant="body2">
 					Lat: {destination.lat}, Lng: {destination.lng}

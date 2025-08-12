@@ -2,6 +2,7 @@ import { Box, CircularProgress } from "@mui/material";
 import mapboxgl from "mapbox-gl";
 import React, { useEffect, useRef, useState } from "react";
 import { Coordinates, Destination } from "../types";
+import { formatDate } from "../utils/formatDate";
 
 interface MapComponentProps {
 	destinations: Destination[];
@@ -74,7 +75,7 @@ const MapComponent = ({
 				.setLngLat([dest.lng, dest.lat])
 				.setPopup(
 					new mapboxgl.Popup({ offset: 25 }).setHTML(
-						`<h3>${dest.name}</h3><p>${dest.date}</p>`
+						`<h3>${dest.name}</h3><p>${formatDate(dest.date)}</p>`
 					)
 				)
 				.addTo(mapRef.current!);
