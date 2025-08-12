@@ -23,7 +23,7 @@ import DestinationCard from "./components/DestinationCard";
 import DestinationForm from "./components/DestinationForm";
 import MapComponent from "./components/MapComponent";
 import { useDestinations } from "./hooks/useDestinations";
-import { Coordinates, SortKey } from "./types";
+import { Coordinates } from "./types";
 
 const drawerWidth = 400;
 
