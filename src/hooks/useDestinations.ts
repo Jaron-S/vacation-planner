@@ -51,22 +51,25 @@ export const useDestinations = () => {
 	}, []);
 
 	const sortedDestinations = useMemo(() => {
-		const sortableDestinations = [...destinations];
 		if (sortOptions.key === "default") {
 			return destinations;
 		}
+
+		const sortableDestinations = [...destinations];
+
 		sortableDestinations.sort((a, b) => {
+			const direction = sortOptions.direction === "asc" ? 1 : -1;
 			if (sortOptions.key === "name") {
-				return a.name.localeCompare(b.name);
+				return a.name.localeCompare(b.name) * direction;
 			}
 			if (sortOptions.key === "date") {
-				return new Date(a.date).getTime() - new Date(b.date).getTime();
+				return (
+					(new Date(a.date).getTime() - new Date(b.date).getTime()) * direction
+				);
 			}
 			return 0;
 		});
-		if (sortOptions.direction === "desc") {
-			return sortableDestinations.reverse();
-		}
+
 		return sortableDestinations;
 	}, [destinations, sortOptions]);
 
