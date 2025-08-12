@@ -1,31 +1,22 @@
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
 	Alert,
 	AppBar,
 	Box,
-	Button,
-	Divider,
 	Drawer,
 	IconButton,
-	Paper,
 	Snackbar,
-	Stack,
 	Toolbar,
 	Typography,
 	useMediaQuery,
 	useTheme,
 } from "@mui/material";
 import mapboxgl from "mapbox-gl";
-import React, { useCallback, useRef, useState } from "react";
-import DestinationCard from "./components/DestinationCard";
-import DestinationForm from "./components/DestinationForm";
+import { useCallback, useRef, useState } from "react";
 import MapComponent from "./components/MapComponent";
-import SortButton from "./components/SortButton";
+import Sidebar from "./components/Sidebar";
 import { useDestinations } from "./hooks/useDestinations";
 import { Coordinates } from "./types";
-import Sidebar from "./components/Sidebar";
 
 const drawerWidth = 400;
 
